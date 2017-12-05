@@ -1,11 +1,11 @@
 <?php
 require_once("./view/TwigView.php");
 
-class Visitante extends TwigView {
+class Usuario extends TwigView {
 
 
-  public function showIndex($session){
-      echo self::getTwig()->render('index.html', array('session' => $session ));
+  public function showIndex($datos){
+      echo self::getTwig()->render('index.html', array('datos' => $datos ));
   }
 
   public function showLogin($datos){
@@ -18,4 +18,4 @@ class Visitante extends TwigView {
   }
 
 }
- ?>
+?>

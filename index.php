@@ -1,6 +1,8 @@
 <?php
 require_once("./view/Visitante.php");
 require_once("./controller/LoginController.php");
+require_once("./controller/UserController.php");
+
 
 if (!isset($_SESSION)) {
   session_start();
@@ -16,13 +18,14 @@ if (isset($_GET['action'])) {
       if (isset($_POST['user']) && ($_POST['user']!="") && (isset($_POST['pass'])) && ($_POST['pass']!="")) {
         LoginController::getInstance()->verify($_POST['user'],$_POST['pass']);
       }else {
-        header("Location=index.php");
+        UserController::getInstance()->showIndex();
       }
       break;
     case 'showBackend':
       $sesion= "false";
       if (isset($_SESSION['user'])){
-        $sesion="true";}
+        $sesion="true";
+      }
       LoginController::getInstance()->showBackend($sesion);
       break;
     case 'destroySession':
@@ -30,7 +33,6 @@ if (isset($_GET['action'])) {
       break;
   }
 }else {
-  $view = new Visitante();
-  $view->showIndex("");
+  UserController::getInstance()->showIndex();
 }
 ?>

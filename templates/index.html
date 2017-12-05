@@ -29,11 +29,17 @@
 
     <header class="header" id="top">
       <!-- Navigation -->
+    {% if session == false %}
     <a href="index.php?action=showLogin"><button type="button" class="btn btn-dark" style="position:fixed">
       Iniciar Sesión
     </button>
     </a>
-
+    {% else %}
+    <a href="index.php?action=showBackend"><button type="button" class="btn btn-dark" style="position:fixed">
+      -Perfil-
+    </button>
+    </a>
+    {% endif %}
       <div class="text-vertical-center">
         <h1>iWant <i class="fa fa-suitcase" aria-hidden="true"></i></h1>
         <h3>Hoteles, vuelos y hasta alquiler de vehiculos a los mejores precios</h3>
