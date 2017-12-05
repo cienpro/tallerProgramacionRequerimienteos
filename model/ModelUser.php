@@ -1,5 +1,5 @@
 <?php
-require_once("model/PDOConnection.php");
+require_once("/opt/lampp/htdocs/taller/model/PDOConnection.php");
 
 class ModelUser{
   private static $instance;

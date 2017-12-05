@@ -1,6 +1,6 @@
 <?php
 
-require_once ('./vendor/autoload.php');
+require_once ('/opt/lampp/htdocs/taller/vendor/autoload.php');
 
 abstract class TwigView {
 

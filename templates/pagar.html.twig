@@ -24,13 +24,7 @@
   </head>
 
   <body>
-
-      <!-- Navigation -->
-    <!-- <a href="index.php?action=showLogin"><button type="button" class="btn btn-dark" style="position:fixed">
-      Iniciar Sesión
-    </button>
-    </a> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">IWant  <i class="fa fa-suitcase" aria-hidden="true"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -41,22 +35,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      {% if session == "true" %}
-      <li {% if session == "true" %}class="nav-item active"{% else %}class="nav-item disable"{% endif %}>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php?action=showBackend">Volver <span class="sr-only">(current)</span></a>
+      </li>
+      {% if session == true %}
+      <li class="nav-item active">
         <a class="nav-link" href="index.php?action=showCarrito">Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
-      {% endif %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filtro
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Vehiculos</a>
-          <a class="dropdown-item" href="#">Vuelos</a>
-          <a class="dropdown-item" href="#">Hoteles</a>
-        </div>
-      </li>
-      {% if session == "true" %}
       <li class="nav-item active">
         <a class="nav-link" href="#">Agregar Fondos <i class="fa fa-credit-card" aria-hidden="true"></i></a>
       </li>
@@ -65,61 +50,57 @@
       </li>
       {% endif %}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Ingrese lo que desea" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+  </div>
+</nav>
+<header class="header" id="top">
+<br>
+<!-- <section id="services" class="services bg-primary text-white"> -->
+<div class="col-lg-6 mx-auto">
+  <div class="conteiner">
+    <h2><strong>Ingrese los Siguientes datos:</strong></h2>
+    <form class="form-group" action="index.html" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nombre">Nombre:</label><input class="form-control" type="text" name="nombre" max="20">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="apellido">Apellido/s</label><input class="form-control" type="text" name="nombre" max="40">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ntarjeta">Numero de Tarjeta:</label> <input class="form-control" type="number" name="ntarjeta" max="19">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="fvencimiento">Fecha de vencimiento</label><input class="form-control" type="number" name="fvencimiento" placeholder="mm/aa" max="5">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="cseguridad">CSC</label><input class="form-control" type="number" name="cseguridad" max="4">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="email">Mail:</label><input class="form-control" type="email" name="email">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="cpostal">Codigo postal</label><input class="form-control" type="text" name="cpostal" max="5">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="ciudad">Ciudad</label><input class="form-control" type="text" name="ciudad" max="30">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="telefono">Telefono</label><input class="form-control" type="number" name="telefono" max="10">
+        </div>
+      </div>
+      <div class="form-row">
+        <h4 class="list-group-item"><strong>Total a Pagar: ${{monto}}</strong></h4><button type="button" class="btn btn-primary btn-lg" style="margin-left:10px"> Pagar <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+      </div>
     </form>
   </div>
-</nav>
-  <header class="header" id="top">
-    <br>
-<!-- <section id="services" class="services bg-primary text-white"> -->
-  <div class="container">
-    <ul class="list-unstyled">
-<<<<<<< HEAD
-      {% for each in datos.publicaciones %}
-  <li class="media">
-    <img class="mr-3" class="figure-img img-fluid rounded" src="./img/{{each.imagen}}.jpg" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">{{each.nombre}} ${{each.precio}} <button type="button" class="btn btn-primary">Ver</button></h5>
-      {{each.descripcion}}
-    </div>
-  </li>
-  <br>
-  {% endfor %}
-</ul>
-=======
-  {% for servicio in servicios %}
-  <li class="media">
-    <img class="mr-3" class="figure-img img-fluid rounded" src="{{servicio.imagen}}">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1"><strong>{{ servicio.titulo }}</strong></h5>
-      {{ servicio.descripcion }}
-      <p><a href="index.php?action=verPerfil?servicio={{servicio.idServicio}}"><button type="button" style="margin-top:20px" class="btn btn-primary">Ver</button></a></p>
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
-
-
-
->>>>>>> 94d17cc06299d32b402442fb92e30201ee48eeef
-
-  </div>
-    </header>
+</div>
+</header>
   <!-- /.container -->
 <!-- </section> -->
 

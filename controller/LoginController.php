@@ -1,8 +1,7 @@
 <?php
 
-require_once("./view/Visitante.php");
-require_once("./model/ModelUser.php");
-
+require_once('view/Visitante.php');
+require_once('model/ModelUser.php');
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -37,5 +36,7 @@ class LoginController {
     $view->showIndex("");
 
   }
+
+
 }
 ?>
