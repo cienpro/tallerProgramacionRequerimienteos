@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="scripts.js" type="text/javascript"></script>
 
     <title>iWant</title>
 
@@ -27,26 +29,13 @@
 
     <header class="header" id="top">
       <!-- Navigation -->
-      <button href="index.php?action=iniciarSesion" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="index.php?action=showLogin"><button type="button" class="btn btn-dark" style="position:fixed">
       Iniciar Sesión
     </button>
-      <div class="dropdown-menu">
-    <form class="px-4 py-3">
-      <div class="form-group">
-        <label for="exampleDropdownFormEmail1">Mail</label>
-        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-      </div>
-      <div class="form-group">
-        <label for="exampleDropdownFormPassword1">Contraseña</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-outline-dark">Ingresar</button>
-    </form>
-  </div>
+    </a>
 
       <div class="text-vertical-center">
-        <h1>iWant <i class="fa fa-suitcase" aria-hidden="true"></i>
-</h1>
+        <h1>iWant <i class="fa fa-suitcase" aria-hidden="true"></i></h1>
         <h3>Hoteles, vuelos y hasta alquiler de vehiculos a los mejores precios</h3>
         <br>
         <a href="#about" class="btn btn-dark btn-lg js-scroll-trigger">Comenza tu sueño</a>
