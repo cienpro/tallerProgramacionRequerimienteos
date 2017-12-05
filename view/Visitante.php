@@ -8,8 +8,8 @@ class Visitante extends TwigView {
       echo self::getTwig()->render('index.html', array('datos' => $datos ));
   }
 
-  public function showIniciarSesion($datos){
-      echo self::getTwig()->render('iniciarSesion.html', array('datos' => $datos ));
+  public function showLogin($datos){
+      echo self::getTwig()->render('login.html', array('datos' => $datos ));
   }
 
 }

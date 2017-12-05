@@ -1,48 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
   <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="login de iwant">
+    <meta name="author" content="francisco e ivan">
 
-    <title>Viajesad</title>
+    <title>Iniciar Sesión</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
+    <script src="../js/jquery.js"></script>
+    <script src="../js/scripts.js"></script>
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
 
   </head>
 
   <body>
-    <!-- Navigation -->
-    <a id="menu-toggle" href="index.php?action=iniciarSesion" class="btn btn-dark btn-lg js-scroll-trigger">Iniciar Sesión</a>
+
     <!-- Header -->
+
     <header class="header" id="top">
+      <!-- Navigation -->
+    <a href="index.php"><button type="button" class="btn btn-dark" style="position:fixed">
+      Volver
+    </button>
+    </a>
       <div class="text-vertical-center">
-        <h1>Viajesad</h1>
-        <h3>BUSQUE Vuelos, Hoteles &amp; Disponibilidad de Coches Gratis</h3>
-        <br>
-        <a href="#about" class="btn btn-dark btn-lg js-scroll-trigger">Buscar</a>
+        <div class="col-lg-4 mx-auto">
+          <form>
+             <div class="form-group">
+               <label for="user">Mail</label>
+               <input type="email" class="form-control" id="user" name="user" placeholder="email@ejemplo.com" required autofocus>
+             </div>
+             <div class="form-group">
+               <label for="pass">Contraseña</label>
+               <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" required>
+             </div>
+             <div id="mensaje" name="mensaje" class="form-group">
+             </div>
+            <button id="iniciarSesion" class="btn btn-outline-dark">Ingresar</button>
+          </form>
       </div>
+    </div>
     </header>
-  <body>
-    <!-- Call to Action -->
-    <aside class="call-to-action bg-primary text-white">
-      <div class="container text-center">
-        <h3>The buttons below are impossible to resist.</h3>
-        <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-      </div>
-    </aside>
-  </body>
 
     <!-- Footer -->
     <footer>
@@ -60,7 +67,7 @@
                 (123) 221-666-666</li>
               <li>
                 <i class="fa fa-envelope-o fa-fw"></i>
-                <a href="mailto:viajesad@gmail.com">viajesad@gmail.com</a>
+                <a href="mailto:iWant@gmail.com">iWant@gmail.com</a>
               </li>
             </ul>
             <br>
@@ -100,6 +107,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/stylish-portfolio.js"></script>
+    <script src="scripts.js"></script>
+
 
   </body>
 

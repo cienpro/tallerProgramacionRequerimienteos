@@ -1,6 +1,8 @@
 <?php
 
 require_once("./view/Visitante.php");
+require_once("./model/ModelUser.php");
+
 
 class LoginController {
 
@@ -19,10 +21,17 @@ class LoginController {
       @session_start();
     }
 
-    public function showIniciarSesion()
+    public function verify($user, $pass)
     {
-      $view = new Visitante();
-      $view->showIndex("");
+      if (ModelUser::getInstance()->verificarEmail($user)) {
+        if ( ModelUser::getInstance()->verify($user,$pass) ) {
+          return 200;
+        }else {
+          echo "Contraseña Incorrecta";
+        }
+      }else {
+        echo "Email Incorrecto";
+      }
     }
 }
 ?>
