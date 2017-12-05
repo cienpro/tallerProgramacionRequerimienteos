@@ -30,7 +30,7 @@ $(document).ready(function(){
 						$('#user').focus();
 						return false;
 					}else if(valor == 'inicio'){
-						document.location.href = 'index.php?action=backend';
+						document.location.href = 'index.php?action=showBackend';
 					}
 				}
 			});
