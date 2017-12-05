@@ -41,9 +41,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      {% if datos.session == "true" %}
+      <li {% if datos.session == "true" %}class="nav-item active"{% else %}class="nav-item disable"{% endif %}>
         <a class="nav-link" href="#">Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
+      {% endif %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Filtro
@@ -54,10 +56,15 @@
           <a class="dropdown-item" href="#">Hoteles</a>
         </div>
       </li>
+      {% if datos.session == "true" %}
       <li class="nav-item active">
         <a class="nav-link" href="#">Agregar Fondos <i class="fa fa-credit-card" aria-hidden="true"></i>
 </a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php?action=destroySession">Salir</a>
+      </li>
+      {% endif %}
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Ingrese lo que desea" aria-label="Search">

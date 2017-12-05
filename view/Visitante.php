@@ -12,8 +12,9 @@ class Visitante extends TwigView {
       echo self::getTwig()->render('login.html', array('datos' => $datos ));
   }
 
-  public function showBackend(){
-      echo self::getTwig()->render('backend.html.twig');
+  public function showBackend($sesion){
+      $datos['session']=$sesion;
+      echo self::getTwig()->render('backend.html.twig',array('datos' => $datos ));
   }
 
 }

@@ -20,12 +20,10 @@ if (isset($_GET['action'])) {
       }
       break;
     case 'showBackend':
-      if (isset($_SESSION['user']))
-        LoginController::getInstance()->showBackend();
-      else{
-        $view = new Visitante();
-        $view->showIndex("");
-      }
+      $sesion= "false";
+      if (isset($_SESSION['user'])){
+        $sesion="true";}
+      LoginController::getInstance()->showBackend($sesion);
       break;
     case 'destroySession':
       LoginController::getInstance()->destroySession();
