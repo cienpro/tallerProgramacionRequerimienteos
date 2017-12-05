@@ -2,6 +2,10 @@
 require_once("./view/Visitante.php");
 require_once("./controller/LoginController.php");
 
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 if (isset($_GET['action'])) {
   switch ($_GET['action']) {
     case 'showLogin':
@@ -16,8 +20,14 @@ if (isset($_GET['action'])) {
       }
       break;
       case 'showBackend':
-        $view= new Visitante();
-        $view->showBackend();
+        if (isset($_SESSION['user']))
+          LoginController::getInstance()->showBackend();
+        else
+          $view = new Visitante();
+          $view->showIndex("");
+        break;
+      case 'destroySession':
+        LoginController::getInstance()->destroySession();
         break;
   }
 }else {
