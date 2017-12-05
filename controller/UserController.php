@@ -24,9 +24,26 @@ class UserController {
       @session_start();
     }
 
-    public function showIndex()
-    {
+    public function showIndex(){
       $view = new Visitante();
       $view->showIndex(isset($_SESSION['user']));
+    }
+
+    public function showCarrito(){
+      $view = new Usuario();
+      if (isset($_SESSION['user']))
+        $view->showCarrito(true);
+      else {
+        $view->showLogin("");
+      }
+    }
+    public function showPago()
+    {
+      $view = new Usuario();
+      if (isset($_SESSION['user']))
+        $view->showPago("");
+      else 
+        $view->showLogin("");
+
     }
 }

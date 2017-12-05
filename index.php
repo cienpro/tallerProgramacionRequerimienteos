@@ -14,19 +14,18 @@ if (isset($_GET['action'])) {
       $view = new Visitante();
       $view->showLogin("");
       break;
-    case 'iniciarSesion':
-      if (isset($_POST['user']) && ($_POST['user']!="") && (isset($_POST['pass'])) && ($_POST['pass']!="")) {
-        LoginController::getInstance()->verify($_POST['user'],$_POST['pass']);
-      }else {
-        UserController::getInstance()->showIndex();
-      }
-      break;
     case 'showBackend':
-      $sesion= "false";
-      if (isset($_SESSION['user'])){
-        $sesion="true";
+      LoginController::getInstance()->showBackend( isset($_SESSION['user']) );
+      break;
+    case 'showCarrito':
+      UserController::getInstance()->showCarrito();
+      break;
+    case 'showPago':
+      if (isset($_SESSION['user'])) {
+        UserController::getInstance()->showPago();
+      }else {
+        echo "no está seteado un monto";
       }
-      LoginController::getInstance()->showBackend($sesion);
       break;
     case 'destroySession':
       LoginController::getInstance()->destroySession();

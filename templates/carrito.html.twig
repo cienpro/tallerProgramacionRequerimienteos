@@ -24,13 +24,7 @@
   </head>
 
   <body>
-
-      <!-- Navigation -->
-    <!-- <a href="index.php?action=showLogin"><button type="button" class="btn btn-dark" style="position:fixed">
-      Iniciar Sesión
-    </button>
-    </a> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">IWant  <i class="fa fa-suitcase" aria-hidden="true"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -41,22 +35,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
-      {% if session == "true" %}
-      <li {% if session == "true" %}class="nav-item active"{% else %}class="nav-item disable"{% endif %}>
-        <a class="nav-link" href="index.php?action=showCarrito">Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php?action=showBackend">Volver <span class="sr-only">(current)</span></a>
       </li>
-      {% endif %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filtro
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Vehiculos</a>
-          <a class="dropdown-item" href="#">Vuelos</a>
-          <a class="dropdown-item" href="#">Hoteles</a>
-        </div>
-      </li>
-      {% if session == "true" %}
+
+      {% if datos.session == "true" %}
       <li class="nav-item active">
         <a class="nav-link" href="#">Agregar Fondos <i class="fa fa-credit-card" aria-hidden="true"></i></a>
       </li>
@@ -65,47 +48,36 @@
       </li>
       {% endif %}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Ingrese lo que desea" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
   </div>
 </nav>
-  <header class="header" id="top">
-    <br>
+<header class="header" id="top">
+<br>
 <!-- <section id="services" class="services bg-primary text-white"> -->
   <div class="container">
-    <ul class="list-unstyled">
-  {% for servicio in servicios %}
-  <li class="media">
-    <img class="mr-3" class="figure-img img-fluid rounded" src="{{servicio.imagen}}">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1"><strong>{{ servicio.titulo }}</strong></h5>
-      {{ servicio.descripcion }}
-      <p><a href="index.php?action=verPerfil?servicio={{servicio.idServicio}}"><button type="button" style="margin-top:20px" class="btn btn-primary">Ver</button></a></p>
+    <ul class="list-group">
+    <li class="list-group-item active">
+      <h5 class="mt-0 mb-1">Mi Carrito:</h5>
+      Ahora podés pagar los siguientes servicios agregados al carrito:
+    {% if productos %}
+    <li class="list-group-item">
+      <h5 class="mt-0 mb-1">Titulo del producto</h5>
+      precio
+    </li>
+    {% else %}
+    <li class="list-group-item">
+        ¡Todavia no agregaste ningun producto al carrito!
+    </li>
+    {% endif %}
+    </ul>
+    <div class="conteiner">
+      <div class="row justify-content-md-center">
+        {% if productos %}
+          <button type="button"  class="btn btn-primary btn-lg" style="margin-top:10px">Acceder Al Pago <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+        {% endif %}
+      </div>
     </div>
-  </li>
-  {% endfor %}
-</ul>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
-
-
-
-
   </div>
-    </header>
+</header>
   <!-- /.container -->
 <!-- </section> -->
 
