@@ -19,16 +19,17 @@ if (isset($_GET['action'])) {
         header("Location=index.php");
       }
       break;
-      case 'showBackend':
-        if (isset($_SESSION['user']))
-          LoginController::getInstance()->showBackend();
-        else
-          $view = new Visitante();
-          $view->showIndex("");
-        break;
-      case 'destroySession':
-        LoginController::getInstance()->destroySession();
-        break;
+    case 'showBackend':
+      if (isset($_SESSION['user']))
+        LoginController::getInstance()->showBackend();
+      else{
+        $view = new Visitante();
+        $view->showIndex("");
+      }
+      break;
+    case 'destroySession':
+      LoginController::getInstance()->destroySession();
+      break;
   }
 }else {
   $view = new Visitante();
