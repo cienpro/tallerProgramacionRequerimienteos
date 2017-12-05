@@ -1,8 +1,8 @@
 <?php
 require_once("./model/ModelUser.php");
-if ( isset($_POST['user']) && ($_POST['user'])!=0 && isset($_POST['pass']) && ($_POST['pass'])!=0 ) {
-  if (ModelUser::getInstance()->verificarEmail($user)) {
-    if ( ModelUser::getInstance()->verify($user,$pass) ) {
+if ( isset($_POST['user']) && isset($_POST['pass']) ) {
+  if (ModelUser::getInstance()->verificarEmail($_POST['user'])) {
+    if ( ModelUser::getInstance()->verify($_POST['user'],$_POST['pass']) ) {
       echo 'inicio';
     }else {
       echo 'password';
@@ -10,6 +10,8 @@ if ( isset($_POST['user']) && ($_POST['user'])!=0 && isset($_POST['pass']) && ($
   }else {
     echo 'usuario';
   }
+}else {
+  echo 'datosError';
 }
 
 ?>
