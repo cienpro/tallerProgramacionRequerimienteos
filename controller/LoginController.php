@@ -3,6 +3,9 @@
 require_once("./view/Visitante.php");
 require_once("./model/ModelUser.php");
 
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 class LoginController {
 
@@ -21,17 +24,18 @@ class LoginController {
       @session_start();
     }
 
-    public function verify($user, $pass)
+    public function showBackend()
     {
-      if (ModelUser::getInstance()->verificarEmail($user)) {
-        if ( ModelUser::getInstance()->verify($user,$pass) ) {
-          return 200;
-        }else {
-          echo "Contraseña Incorrecta";
-        }
-      }else {
-        echo "Email Incorrecto";
-      }
+      $view= new Visitante();
+      $view->showBackend();
     }
+
+  public function destroySession()
+  {
+    session_destroy();
+    $view= new Visitante();
+    $view->showIndex("");
+
+  }
 }
 ?>
