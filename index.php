@@ -26,7 +26,8 @@ if (isset($_GET['action'])) {
       if (isset($_SESSION['user'])){
         $sesion="true";
       }
-      LoginController::getInstance()->showBackend($sesion);
+      $publicaciones = ModelUser::getInstance()->getServicios();
+      LoginController::getInstance()->showBackend($sesion,$publicaciones);
       break;
     case 'destroySession':
       LoginController::getInstance()->destroySession();

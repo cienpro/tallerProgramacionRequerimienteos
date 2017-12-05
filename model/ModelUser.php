@@ -49,6 +49,17 @@ class ModelUser{
     return ($stmt->rowCount() != 0 );
   }
 
+  public function getServicios()
+  {
+    $model = new PDOConnection();
+    $connection = $model -> getConnection();
+    $query = "SELECT * FROM servicio";
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll();
+    return ($resultado);
+  }
+
 
 
 }

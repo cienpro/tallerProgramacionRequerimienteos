@@ -24,10 +24,10 @@ class LoginController {
       @session_start();
     }
 
-    public function showBackend($sesion)
+    public function showBackend($sesion,$publicaciones)
     {
-      $view= new Visitante();
-      $view->showBackend($sesion);
+      $view= new Usuario();
+      $view->showBackend($sesion,$publicaciones);
     }
 
   public function destroySession()
