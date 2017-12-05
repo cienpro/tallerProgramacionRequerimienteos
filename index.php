@@ -15,6 +15,10 @@ if (isset($_GET['action'])) {
         header("Location=index.php");
       }
       break;
+      case 'showBackend':
+        $view= new Visitante();
+        $view->showBackend();
+        break;
   }
 }else {
   $view = new Visitante();
