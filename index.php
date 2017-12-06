@@ -30,7 +30,12 @@ if (isset($_GET['action'])) {
     case 'destroySession':
       LoginController::getInstance()->destroySession();
       break;
-  }
+    case 'agregarCarrito':
+      if (isset($_SESSION['user']) && isset($_GET['servicio'])){
+        UserController::getInstance()->addCarrito($_GET['servicio']);
+      }
+      break;
+    }
 }else {
   UserController::getInstance()->showIndex();
 }

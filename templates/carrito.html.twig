@@ -58,11 +58,14 @@
     <li class="list-group-item active">
       <h5 class="mt-0 mb-1">Mi Carrito:</h5>
       Ahora podés pagar los siguientes servicios agregados al carrito:
-    {% if productos %}
+    {% if datos.agregados %}
+    {% for each in datos.agregados %}
+    {% set indice = each - 1 %}
     <li class="list-group-item">
-      <h5 class="mt-0 mb-1">Titulo del producto</h5>
-      precio
+      <h5 class="mt-0 mb-1">Titulo del producto: {{datos.productos[indice].nombre}}</h5>
+      Precio: ${{datos.productos[indice].precio}}
     </li>
+    {% endfor %}
     {% else %}
     <li class="list-group-item">
         ¡Todavia no agregaste ningun producto al carrito!

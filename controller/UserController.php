@@ -2,6 +2,7 @@
 
 require_once("./view/Usuario.php");
 require_once("./model/ModelUser.php");
+require_once("./model/ModelServicios.php");
 
 if (!isset($_SESSION)) {
   session_start();
@@ -31,8 +32,10 @@ class UserController {
 
     public function showCarrito(){
       $view = new Usuario();
-      if (isset($_SESSION['user']))
-        $view->showCarrito(true);
+      if (isset($_SESSION['user'])){
+        $servicios=ModelServicios::getInstance()->getServicios();
+        $view->showCarrito(true,$servicios);
+      }
       else {
         $view->showLogin("");
       }
@@ -51,5 +54,10 @@ class UserController {
       $publicaciones = ModelUser::getInstance()->getServicios();
       $view= new Usuario();
       $view->showBackend($session,$publicaciones);
+    }
+    public function addCarrito($servicio)
+    {
+      $_SESSION['productos'][$_GET['servicio']]=$servicio;
+      header('location:index.php?action=showCarrito');
     }
 }
