@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
       $view->showLogin("");
       break;
     case 'showBackend':
-      LoginController::getInstance()->showBackend( isset($_SESSION['user']) );
+      UserController::getInstance()->showBackend(isset($_SESSION['user']));
       break;
     case 'showCarrito':
       UserController::getInstance()->showCarrito();
@@ -26,11 +26,6 @@ if (isset($_GET['action'])) {
       }else {
         echo "no está seteado un monto";
       }
-<<<<<<< HEAD
-      $publicaciones = ModelUser::getInstance()->getServicios();
-      LoginController::getInstance()->showBackend($sesion,$publicaciones);
-=======
->>>>>>> 94d17cc06299d32b402442fb92e30201ee48eeef
       break;
     case 'destroySession':
       LoginController::getInstance()->destroySession();

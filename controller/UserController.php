@@ -42,8 +42,18 @@ class UserController {
       $view = new Usuario();
       if (isset($_SESSION['user']))
         $view->showPago("");
-      else 
+      else
         $view->showLogin("");
 
+    }
+    public function showBackend($session)
+    {
+      $sesion= "false";
+      if ($session){
+        $sesion="true";
+      }
+      $publicaciones = ModelUser::getInstance()->getServicios();
+      $view= new Usuario();
+      $view->showBackend($sesion,$publicaciones);
     }
 }

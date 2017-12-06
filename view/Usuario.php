@@ -10,8 +10,9 @@ class Usuario extends TwigView {
   public function showBackend($sesion,$publicaciones){
       $datos['session']=$sesion;
       $datos['publicaciones']=$publicaciones;
+      var_dump($datos);
       echo self::getTwig()->render('backend.html.twig',array('datos' => $datos ));
-
+    }
   public function showCarrito($sesion){
       $datos['session']=$sesion;
       echo self::getTwig()->render('carrito.html.twig',array('datos' => $datos ));

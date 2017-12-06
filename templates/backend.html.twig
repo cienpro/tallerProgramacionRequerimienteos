@@ -76,7 +76,6 @@
 <!-- <section id="services" class="services bg-primary text-white"> -->
   <div class="container">
     <ul class="list-unstyled">
-<<<<<<< HEAD
       {% for each in datos.publicaciones %}
   <li class="media">
     <img class="mr-3" class="figure-img img-fluid rounded" src="./img/{{each.imagen}}.jpg" alt="Generic placeholder image">
@@ -88,35 +87,6 @@
   <br>
   {% endfor %}
 </ul>
-=======
-  {% for servicio in servicios %}
-  <li class="media">
-    <img class="mr-3" class="figure-img img-fluid rounded" src="{{servicio.imagen}}">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1"><strong>{{ servicio.titulo }}</strong></h5>
-      {{ servicio.descripcion }}
-      <p><a href="index.php?action=verPerfil?servicio={{servicio.idServicio}}"><button type="button" style="margin-top:20px" class="btn btn-primary">Ver</button></a></p>
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
-
-
-
->>>>>>> 94d17cc06299d32b402442fb92e30201ee48eeef
 
   </div>
     </header>
