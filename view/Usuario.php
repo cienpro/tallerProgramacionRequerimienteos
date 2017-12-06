@@ -25,5 +25,11 @@ class Usuario extends TwigView {
     }
     echo self::getTwig()->render('pagar.html.twig',$datos);
   }
+  public function showPerfilServicio($servicio)
+  {
+    $datos['session']=isset($_SESSION['user']);
+    $datos['producto']=$servicio;
+    echo self::getTwig()->render('servicioPerfil.html.twig',$datos);
+  }
 }
 ?>

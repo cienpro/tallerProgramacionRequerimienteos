@@ -59,13 +59,18 @@
       <h5 class="mt-0 mb-1">Mi Carrito:</h5>
       Ahora podés pagar los siguientes servicios agregados al carrito:
     {% if datos.agregados %}
+    {% set total = 0 %}
     {% for each in datos.agregados %}
-    {% set indice = each - 1 %}
+    {% set indice = each.indice - 1 %}
+    {% set total = total + datos.productos[indice].precio %}
     <li class="list-group-item">
-      <h5 class="mt-0 mb-1">Titulo del producto: {{datos.productos[indice].nombre}}</h5>
-      Precio: ${{datos.productos[indice].precio}}
+      <h5 class="mt-0 mb-1">Titulo del producto: {{datos.productos[indice].nombre}}         <a data-toggle="tooltip" title="Eliminar producto {{datos.productos[indice].nombre}}" href="index.php?action=eliminarDelCarrito&servicio={{each.indice}}"><button type="button" class="btn btn-danger">Eliminar</button></a></h5>
+      Precio: ${{datos.productos[indice].precio}}<br> {% if datos.productos[indice].idTipoServicio != 3 %}Desde: {{each.desde}}  <br>Hasta: {{each.hasta}} {% endif %}
     </li>
     {% endfor %}
+    <li class="list-group-item">
+      <h5 class="mt-0 mb-1">Monto Total: ${{total}}</h5>
+    </li>
     {% else %}
     <li class="list-group-item">
         ¡Todavia no agregaste ningun producto al carrito!
@@ -74,7 +79,7 @@
     </ul>
     <div class="conteiner">
       <div class="row justify-content-md-center">
-        {% if productos %}
+        {% if datos.agregados %}
           <button type="button"  class="btn btn-primary btn-lg" style="margin-top:10px">Acceder Al Pago <i class="fa fa-credit-card" aria-hidden="true"></i></button>
         {% endif %}
       </div>

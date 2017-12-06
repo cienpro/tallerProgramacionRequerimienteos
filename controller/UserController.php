@@ -55,9 +55,25 @@ class UserController {
       $view= new Usuario();
       $view->showBackend($session,$publicaciones);
     }
-    public function addCarrito($servicio)
+    public function addCarrito($servicio,$desde,$hasta)
     {
-      $_SESSION['productos'][$_GET['servicio']]=$servicio;
+      $producto['desde']=$desde;
+      $producto['hasta']=$hasta;
+      $producto['indice']=$servicio;
+      $_SESSION['productos'][$servicio]=$producto;
+      header('location:index.php?action=showCarrito');
+    }
+
+    public function showPerfilServicio($servicio)
+    {
+      $publicacion = ModelServicios::getInstance()->getServicio($servicio);
+      $view= new Usuario();
+      $view->showPerfilServicio($publicacion);
+    }
+
+    public function eliminarDelCarrito($servicio)
+    {
+      unset($_SESSION['productos'][$_GET['servicio']]);
       header('location:index.php?action=showCarrito');
     }
 }

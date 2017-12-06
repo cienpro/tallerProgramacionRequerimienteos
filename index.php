@@ -27,13 +27,23 @@ if (isset($_GET['action'])) {
         echo "no está seteado un monto";
       }
       break;
+    case 'showPerfilServicio':
+      if (isset($_GET['servicio'])) {
+        UserController::getInstance()->showPerfilServicio($_GET['servicio']);
+      }
+      break;
     case 'destroySession':
       LoginController::getInstance()->destroySession();
       break;
     case 'agregarCarrito':
       if (isset($_SESSION['user']) && isset($_GET['servicio'])){
-        UserController::getInstance()->addCarrito($_GET['servicio']);
+        UserController::getInstance()->addCarrito($_GET['servicio'],$_POST['desde'],$_POST['hasta']);
       }
+      break;
+    case 'eliminarDelCarrito':
+    if (isset($_SESSION['user']) && isset($_GET['servicio'])){
+      UserController::getInstance()->eliminarDelCarrito($_GET['servicio']);
+    }
       break;
     }
 }else {

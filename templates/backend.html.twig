@@ -72,6 +72,11 @@
   <header class="header" id="top">
     <br>
 <!-- <section id="services" class="services bg-primary text-white"> -->
+<div class="container">
+  <ul class="list-group">
+  <li class="list-group-item active">
+    <h5 class="mt-0 mb-1">Productos:</h5>
+  <li class="list-group-item">
   <div class="container">
     <ul class="list-unstyled">
       {% for each in publicaciones %}
@@ -81,16 +86,16 @@
       <h5 class="mt-0 mb-1">{{each.nombre}} ${{each.precio}}</h5>
       {{each.descripcion}}
     </div>
-    {% if session == true %}
-    <a data-toggle="tooltip" title="Agrega {{each.nombre}} al carrito de compras" href="index.php?action=agregarCarrito&servicio={{ each.idServicio }}"><button type="button" class="btn btn-primary" style="margin-right:20px">Agregar al Carrito</button></a>
-    {% endif %}
-    <a data-toggle="tooltip" title="Ver detalles del {{each.nombre}}" href="index.php?action=verPerfil&servicio={{ each.idServicio }}"><button type="button" class="btn btn-primary">Ver</button></a>
+    <a data-toggle="tooltip" title="Ver detalles del {{each.nombre}}" href="index.php?action=showPerfilServicio&servicio={{ each.idServicio }}"><button type="button" class="btn btn-primary">Ver</button></a>
   </li>
   <br>
   {% endfor %}
 </ul>
 
   </div>
+</li>
+</ul>
+</div>
     </header>
   <!-- /.container -->
 <!-- </section> -->
