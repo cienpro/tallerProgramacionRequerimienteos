@@ -65,7 +65,7 @@
     {% set total = total + datos.productos[indice].precio %}
     <li class="list-group-item">
       <h5 class="mt-0 mb-1">Titulo del producto: {{datos.productos[indice].nombre}}         <a data-toggle="tooltip" title="Eliminar producto {{datos.productos[indice].nombre}}" href="index.php?action=eliminarDelCarrito&servicio={{each.indice}}"><button type="button" class="btn btn-danger">Eliminar</button></a></h5>
-      Precio: ${{datos.productos[indice].precio}}<br> {% if datos.productos[indice].idTipoServicio != 3 %}Desde: {{each.desde}}  <br>Hasta: {{each.hasta}} {% endif %}
+      Precio: ${{datos.productos[indice].precio}}<br> {% if datos.productos[indice].idTipoServicio != 3 %}Desde: {{each.desde}}  <br>Hasta: {{each.hasta}} {% if datos.productos[indice].idTipoServicio == 1 %} <br>Habitacion:  {{each.habitacion}} {% endif %} {% endif %}
     </li>
     {% endfor %}
     <li class="list-group-item">
@@ -80,7 +80,7 @@
     <div class="conteiner">
       <div class="row justify-content-md-center">
         {% if datos.agregados %}
-          <button type="button"  class="btn btn-primary btn-lg" style="margin-top:10px">Acceder Al Pago <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+        <a href="index.php?action=agregarCompra&total={{total}}">  <button type="submit"  class="btn btn-primary btn-lg" style="margin-top:10px">Acceder Al Pago <i class="fa fa-credit-card" aria-hidden="true"></i></button></a>
         {% endif %}
       </div>
     </div>

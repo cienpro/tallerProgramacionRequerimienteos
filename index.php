@@ -20,6 +20,9 @@ if (isset($_GET['action'])) {
     case 'showCarrito':
       UserController::getInstance()->showCarrito();
       break;
+    // case 'agregarCompra':
+    //   UserController::getInstance()->addCompra($_GET['total']);
+    //   break;
     case 'showPago':
       if (isset($_SESSION['user'])) {
         UserController::getInstance()->showPago();
@@ -37,7 +40,7 @@ if (isset($_GET['action'])) {
       break;
     case 'agregarCarrito':
       if (isset($_SESSION['user']) && isset($_GET['servicio'])){
-        UserController::getInstance()->addCarrito($_GET['servicio'],$_POST['desde'],$_POST['hasta']);
+        UserController::getInstance()->addCarrito($_GET['servicio'],$_POST['desde'],$_POST['hasta'],$_POST['habitacion']);
       }
       break;
     case 'eliminarDelCarrito':

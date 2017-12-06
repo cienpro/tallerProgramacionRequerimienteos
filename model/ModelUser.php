@@ -59,7 +59,16 @@ class ModelUser{
     $resultado = $stmt->fetchAll();
     return ($resultado);
   }
-
+  public function getIdUser($mail)
+  {
+    $model = new PDOConnection();
+    $connection = $model -> getConnection();
+    $query = "SELECT idUsuario FROM usuario WHERE mail = '$mail'";
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll();
+    return ($resultado);
+  }
 
 
 }
