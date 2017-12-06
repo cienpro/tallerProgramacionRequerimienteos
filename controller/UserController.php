@@ -48,12 +48,8 @@ class UserController {
     }
     public function showBackend($session)
     {
-      $sesion= "false";
-      if ($session){
-        $sesion="true";
-      }
       $publicaciones = ModelUser::getInstance()->getServicios();
       $view= new Usuario();
-      $view->showBackend($sesion,$publicaciones);
+      $view->showBackend($session,$publicaciones);
     }
 }
