@@ -81,6 +81,7 @@
       <h5 class="mt-0 mb-1">{{each.nombre}} ${{each.precio}}</h5>
       {{each.descripcion}}
     </div>
+    <a data-toggle="tooltip" title="Agrega {{each.nombre}} al carrito de compras" href="index.php?action=agregarCarrito?servicio={{ each.idServicio }}"><button type="button" class="btn btn-primary" style="margin-right:20px">Agregar al Carrito</button></a>
     <a data-toggle="tooltip" title="Ver detalles del {{each.nombre}}" href="index.php?action=verPerfil?servicio={{ each.idServicio }}"><button type="button" class="btn btn-primary">Ver</button></a>
   </li>
   <br>
